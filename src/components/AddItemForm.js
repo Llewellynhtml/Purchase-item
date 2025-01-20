@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { View, TextInput, Button, StyleSheet, Text } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../slices/shoppingListSlice';
 
@@ -18,6 +18,7 @@ const AddItemForm = () => {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>Add New Item</Text>
       <TextInput
         style={styles.input}
         placeholder="Item Name"
@@ -31,14 +32,35 @@ const AddItemForm = () => {
         onChangeText={setQuantity}
         keyboardType="numeric"
       />
-      <Button title="Add Item" onPress={handleAdd} />
+      <Button title="Add Item" onPress={handleAdd} color="#4CAF50" />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: { margin: 16 },
-  input: { borderWidth: 1, padding: 8, marginBottom: 8 },
+  container: {
+    margin: 16,
+    padding: 16,
+    backgroundColor: '#f9f9f9',
+    borderRadius: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 8,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 4,
+    padding: 8,
+    marginBottom: 8,
+  },
 });
 
 export default AddItemForm;
